@@ -1,13 +1,15 @@
 <h1>Articles</h1>
 
 <ul>
-    <!-- Does not have the `=` after the `%` because we don't want it to display the return value of `@articles.each` -->
+    <!-- Start a loop over each article in the `@articles` array. Note the lack of `=` after the `%` because we don't want it to display the return value of `@articles.each` -->
     <% @articles.each do |article| %>
         <li>
-            <!-- Here we use the `%=` because we DO want to outpput the value returned by `article.title` (for each article) -->
-            <a href="/articles/<%= article.id %>">
-                <%= article.title %>
-            </a>
+            <!-- For each article, create a link with the text being the article's title and the URL being the path to the article's show page -->
+            <!-- link_to is a helper method that generates an HTML link. -->
+            <!-- The first argument is the text that will be displayed in the link, and the second argument is the URL that the link will go to. -->
+            <%= link_to article.title, article %>
         </li>
     <% end %>
 </ul>
+
+<%= link_to 'New Article', new_article_path %>
