@@ -1,0 +1,13 @@
+<h1>Articles</h1>
+
+<ul>
+    <!-- Does not have the `=` after the `%` because we don't want it to display the return value of `@articles.each` -->
+    <% @articles.each do |article| %>
+        <li>
+            <!-- Here we use the `%=` because we DO want to outpput the value returned by `article.title` (for each article) -->
+            <a href="/articles/<%= article.id %>">
+                <%= article.title %>
+            </a>
+        </li>
+    <% end %>
+</ul>
